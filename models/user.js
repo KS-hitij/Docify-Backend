@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcrypt");
+const { required } = require("joi");
 const userSchema = mongoose.Schema({
     username: String,
     email: {
@@ -10,6 +11,10 @@ const userSchema = mongoose.Schema({
     createdAt:{
         type: Date,
         default: Date.now
+    },
+    rootFolder:{
+        type: mongoose.Schema.ObjectId,
+        required:true
     }
 })
 

@@ -7,7 +7,6 @@ const storage = new CloudinaryStorage({
   params: {
     resource_type: "raw", 
     folder: "FMS",
-    allowed_formats: ["pdf", "doc", "docx", "txt", "zip", "xls"],
     public_id: (req, file) => `${Date.now()}-${file.originalname}`
   }
 })

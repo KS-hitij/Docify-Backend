@@ -1,4 +1,3 @@
-const { required } = require("joi")
 const mongoose = require("mongoose")
 
 const fileSchema = mongoose.Schema({
@@ -37,7 +36,7 @@ const fileSchema = mongoose.Schema({
     },
     parentFolder:{
         type: mongoose.Schema.ObjectId,
-        ref:"folder",
+        ref:"folderModel",
         required:true
     }
 })

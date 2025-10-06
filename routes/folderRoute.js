@@ -37,8 +37,7 @@ router.get("/read/:id", authenticate, wrapasync(async (req, res) => {
         return res.status(404).json({ error: "Folder not found" })
     }
     res.json({
-        files: folder.files,
-        subFolders: folder.subFolder
+        folder:folder
     })
 }))
 
@@ -51,5 +50,6 @@ router.delete("/delete/:id", authenticate, wrapasync(async (req, res) => {
         throw error;
     }
     await deleteFolderAndTheirFiles(id)
+    res.json({message:"Success"}).status(200)
 }))
 module.exports = router

@@ -9,7 +9,7 @@ const authenticate = async (req, res, next) => {
       return res.status(401).json({ message: "User Must LogIn Or SignUp" })
     }
     const decoded = jwt.verify(token, process.env.JWT_SECRET)
-    const user = await userModel.findOne({ mail: decoded.mail })
+    const user = await userModel.findOne({ email: decoded.email })
     if (!user) {
       return res.status(401).json({ message: "User Must LogIn Or SignUp" })
     }
